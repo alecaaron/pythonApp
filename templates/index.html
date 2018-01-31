@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
-{% block content %}
+{% block header %}
     <h1>Hello World</h1>
-    <section id="home_cta">
-      <a href="#" class="btn-main">Learn More</a>
+    <section id="About_cta">
+      <a href={{ url_for('about') }} class="btn-main">Learn More</a>
       <a href="#" class="btn-main">Sign up</a>
     </section>
 {% endblock %}
