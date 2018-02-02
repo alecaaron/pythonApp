@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <div class="nav">
+    <h1>Sign Up</h1>
+    <a href={{ url_for('index') }} class="btn-main">Home</a>
+    <a href={{ url_for('about') }} class="btn-main">About</a>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="signup">
+    <h2>Sign Up Here</h2>
+    <form method="post" action="/signup">
+      {{ form.hidden_tag() }}
+
+      <span class="input-block">
+        {{ form.first_name.label }}
+        {% if form.first_name.errors %}
+          {% for error in form.first_name.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        {{ form.first_name }}
+      </span>
+      <span class="input-block">
+        {{ form.last_name.label }}
+        {% if form.last_name.errors %}
+          {% for error in form.last_name.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        {{ form.last_name }}
+      </span>
+      <span class="input-block">
+        {{ form.email.label }}
+        {% if form.email.errors %}
+          {% for error in form.email.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        {{ form.email }}
+      </span>
+      <span class="input-block">
+        {{ form.password.label }}
+        {% if form.password.errors %}
+          {% for error in form.password.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        {{ form.password }}
+      </span>
+
+      {{ form.submit(class="btn-main") }}
+
+    </form>
+  </div>
+
+{% endblock %}

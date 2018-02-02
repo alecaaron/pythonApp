@@ -539,3 +539,57 @@ html {
   width: 20rem;
   text-align: center;
 }
+
+/* line 69, ../sass/screen.scss */
+.signup {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10em;
+  margin-bottom: 5em;
+  padding-bottom: 1.5em;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+/* line 81, ../sass/screen.scss */
+.signup form {
+  display: inherit;
+  flex-direction: inherit;
+}
+/* line 84, ../sass/screen.scss */
+.signup form .input-block {
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+/* line 90, ../sass/screen.scss */
+.signup form .input-block label {
+  margin-right: 2em;
+}
+/* line 95, ../sass/screen.scss */
+.signup form .input-block input:not(#submit):focus {
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+/* line 101, ../sass/screen.scss */
+.signup form #submit {
+  width: 7rem;
+  align-self: center;
+  margin-top: 1em;
+  transition: all .5s;
+}
+/* line 106, ../sass/screen.scss */
+.signup form #submit:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* line 115, ../sass/screen.scss */
+.error {
+  color: red;
+  font-size: .5em;
+}
