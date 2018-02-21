@@ -1,59 +1,84 @@
 {% extends "layout.html" %}
 
-{% block header %}
-  <div class="nav">
-    <h1>Sign Up</h1>
-    <a href={{ url_for('index') }} class="btn-main">Home</a>
-    <a href={{ url_for('about') }} class="btn-main">About</a>
-  </div>
+{% block nav %}
+<a href={{ url_for('index') }}>Home</a>
+<a href={{ url_for('about') }}>About</a>
+<a href={{ url_for('login') }}>Login
+<a href={{ url_for('signup') }} class="btn-main-hollow">Signup</a>{% endblock %}
+
+{% block header_body %}
+
+  <section class="signup-header-wrap">
+    <h1>The World Awaits</h1>
+  </section>
+
 {% endblock %}
 
 {% block content %}
-  <div class="signup">
-    <h2>Sign Up Here</h2>
+<main class="signup-main">
+  <section class="signup-desc">
+    <h2>Benifits waiting for you</h2>
+    <ul>
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet</li>
+    </ul>
+    <p>Already a Member? <a href="{{ url_for('login') }}">Login</a>.</p>
+  </section>
+
+  <section class="form-wrapper signup-form">
     <form method="post" action="/signup">
       {{ form.hidden_tag() }}
 
-      <span class="input-block">
+      <span class="form-input--block">
         {{ form.first_name.label }}
+        <span>
+        {{ form.first_name(class_= form_error_input) }}
         {% if form.first_name.errors %}
           {% for error in form.first_name.errors %}
-            <p class="error">{{ error }}</p>
+            <p class="form-error--message">{{ error }}</p>
           {% endfor %}
         {% endif %}
-        {{ form.first_name }}
+        </span>
       </span>
-      <span class="input-block">
+      <span class="form-input--block">
         {{ form.last_name.label }}
+        <span>
+        {{ form.last_name(class_= form_error_input) }}
         {% if form.last_name.errors %}
           {% for error in form.last_name.errors %}
-            <p class="error">{{ error }}</p>
+            <p class="form-error--message">{{ error }}</p>
           {% endfor %}
         {% endif %}
-        {{ form.last_name }}
+        </span>
       </span>
-      <span class="input-block">
+      <span class="form-input--block">
         {{ form.email.label }}
+        <span>
+        {{ form.email(class_= form_error_input) }}
         {% if form.email.errors %}
           {% for error in form.email.errors %}
-            <p class="error">{{ error }}</p>
+            <p class="form-error--message">{{ error }}</p>
           {% endfor %}
         {% endif %}
-        {{ form.email }}
+        </span>
       </span>
-      <span class="input-block">
+      <span class="form-input--block">
         {{ form.password.label }}
+        <span>
+        {{ form.password(class_= form_error_input) }}
         {% if form.password.errors %}
           {% for error in form.password.errors %}
-            <p class="error">{{ error }}</p>
+            <p class="form-error--message">{{ error }}</p>
           {% endfor %}
         {% endif %}
-        {{ form.password }}
+        </span>
       </span>
 
       {{ form.submit(class="btn-main") }}
 
     </form>
-  </div>
+  </section>
+</main>
 
 {% endblock %}

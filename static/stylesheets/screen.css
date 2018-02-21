@@ -479,117 +479,344 @@ template {
   display: none;
 }
 
-/* line 8, ../sass/screen.scss */
-html {
-  font-family: 'PT Serif', serif;
-  font-size: 16px;
+/* line 1, ../sass/templates/_index.scss */
+.index-header-wrap {
+  width: 80%;
+  height: 15em;
+  text-align: center;
 }
-
-@media (min-width: 50em) {
-  /* line 15, ../sass/screen.scss */
-  html {
-    font-size: 2vw;
-  }
-}
-/* line 20, ../sass/screen.scss */
-.btn-main, .btn-second {
-  padding-top: .3em;
-  padding-bottom: .3em;
-  padding-left: .5em;
-  padding-right: .5em;
-  font-weight: bold;
-  background-color: brown;
-  border: none;
-}
-
-/* line 31, ../sass/screen.scss */
-.btn-main {
-  color: white;
-  transition: all .3s;
-}
-/* line 35, ../sass/screen.scss */
-.btn-main:hover {
-  background: #541515;
-}
-
-/* line 44, ../sass/screen.scss */
-#header {
-  width: 100%;
-  height: 100vh;
-  background: url("../img/earth.jpg");
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* line 52, ../sass/screen.scss */
-#header h1 {
+/* line 6, ../sass/templates/_index.scss */
+.index-header-wrap h1 {
   color: white;
   font-weight: lighter;
   font-style: italic;
-  margin-left: 1rem;
-  font-size: 5rem;
+  font-weight: bold;
+  font-size: 4rem;
   margin-top: 0;
 }
 
-/* line 62, ../sass/screen.scss */
-#home_cta {
-  display: flex;
-  justify-content: space-between;
-  width: 20rem;
-  text-align: center;
+/* line 16, ../sass/templates/_index.scss */
+video#index-hero {
+  position: absolute;
+  z-index: -3;
+  top: 0;
+  width: 100%;
+  transform: translateY(-5em);
 }
 
-/* line 69, ../sass/screen.scss */
-.signup {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
+/* line 24, ../sass/templates/_index.scss */
+.index-search-textInput {
+  padding: .5em;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 3px solide white;
+  color: white;
+}
+/* line 32, ../sass/templates/_index.scss */
+.index-search-textInput:focus {
+  outline: none;
+}
+
+/* line 37, ../sass/templates/_index.scss */
+.index-search-results {
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -10em;
-  margin-bottom: 5em;
-  padding-bottom: 1.5em;
+  margin-top: -4rem;
+  height: 10em;
+  list-style-type: none;
+}
+/* line 44, ../sass/templates/_index.scss */
+.index-search-results--item {
+  display: grid;
+  background: white;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  border-bottom: 2px black solid;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  padding-left: 2em;
+  height: 5em;
+  transition: all .5s;
+}
+/* line 55, ../sass/templates/_index.scss */
+.index-search-results--item:hover {
+  transition: all .5s;
+  height: 15em;
+}
+/* line 58, ../sass/templates/_index.scss */
+.index-search-results--item:hover .index-search-results--bio {
+  transition: all .5s;
+  opacity: 1;
+}
+/* line 64, ../sass/templates/_index.scss */
+.index-search-results--title {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+/* line 68, ../sass/templates/_index.scss */
+.index-search-results--img {
+  width: 5em;
+  height: 4em;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+/* line 74, ../sass/templates/_index.scss */
+.index-search-results--bio {
+  transition: all .3s;
+  opacity: 0;
+}
+
+/* line 2, ../sass/templates/_signup.scss */
+.signup-header-wrap {
+  background-image: url("https://s3.amazonaws.com/aws-website-alecaaroncom-kjonn/img/stars.jpg");
+  width: 100%;
+  height: 8em;
+  color: white;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+/* line 12, ../sass/templates/_signup.scss */
+.signup-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+/* line 21, ../sass/templates/_signup.scss */
+.signup-form {
+  position: relative;
+  z-index: 10;
+  margin-top: -5em;
+}
+
+/* line 2, ../sass/templates/_login.scss */
+.login-main {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: green;
+  height: 25em;
+}
+/* line 13, ../sass/templates/_login.scss */
+.login-form {
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+}
+/* line 17, ../sass/templates/_login.scss */
+.login-no-acct {
+  text-align: center;
+  position: relative;
+  height: 15em;
+  width: 20em;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+}
+/* line 27, ../sass/templates/_login.scss */
+.login-no-acct a {
+  width: 5em;
+  align-self: center;
+}
+
+/* line 34, ../sass/templates/_login.scss */
+.vertical-divider {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* line 40, ../sass/templates/_login.scss */
+.vertical-divider--top, .vertical-divider--bottom {
+  width: .2em;
+  height: 5em;
   background-color: white;
+  margin-bottom: 1em;
+  margin-top: auto;
+}
+/* line 47, ../sass/templates/_login.scss */
+.vertical-divider--bottom {
+  margin-bottom: auto;
+  margin-top: 1em;
+}
+/* line 52, ../sass/templates/_login.scss */
+.vertical-divider--content {
+  background: #00b300;
+  border-radius: 20em;
+  padding: .5em;
+  transform: rotate(-10deg);
+  text-decoration: underline;
+}
+
+/* line 13, ../sass/screen.scss */
+html {
+  font-family: 'PT Serif', serif;
+  font-size: 2vw;
+}
+/* line 16, ../sass/screen.scss */
+html a {
+  font-family: sans-serif;
+}
+
+@media (max-width: 650px) {
+  /* line 24, ../sass/screen.scss */
+  html {
+    font-size: 100%;
+  }
+}
+/* line 31, ../sass/screen.scss */
+.btn-main, .btn-main-hollow, .btn-second {
+  font-weight: bold;
+  border-radius: 5px;
+  border-width: .1em;
+  border-style: solid;
+  padding-top: .25em;
+  padding-right: .5em;
+  padding-bottom: .25em;
+  padding-left: .5em;
+}
+
+/* line 47, ../sass/screen.scss */
+.btn-main {
+  background-color: orange;
+  border-color: orange;
+  color: white;
+  transition: all .2s;
+}
+/* line 53, ../sass/screen.scss */
+.btn-main:hover {
+  background: #996300;
+  border-color: #996300;
+  transition: all .2s;
+}
+/* line 60, ../sass/screen.scss */
+.btn-main-hollow {
+  border-color: orange;
+  background-color: none;
+  color: green;
+  transition: all .2s;
+  text-decoration: none;
+}
+/* line 67, ../sass/screen.scss */
+.btn-main-hollow:hover {
+  background-color: orange;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  color: white;
+  transition: all .2s;
+  text-decoration: inherit;
 }
+
 /* line 81, ../sass/screen.scss */
-.signup form {
-  display: inherit;
-  flex-direction: inherit;
+.index-header-wrap, .signup-header-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5em;
+  position: relative;
 }
-/* line 84, ../sass/screen.scss */
-.signup form .input-block {
+
+/* line 88, ../sass/screen.scss */
+header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+/* line 95, ../sass/screen.scss */
+header nav {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5em;
+  margin-right: 2em;
+  padding-top: 1em;
+  width: 30%;
+  max-width: 20em;
+}
+/* line 105, ../sass/screen.scss */
+header nav a {
+  color: green;
+  text-decoration: none;
+}
+/* line 108, ../sass/screen.scss */
+header nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  -webkit-text-decoration-color: orange;
+}
+
+/* line 118, ../sass/screen.scss */
+.form-wrapper {
+  align-items: center;
+  display: flex;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5em;
+  padding: 1em;
+  width: 40%;
+}
+/* line 129, ../sass/screen.scss */
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+/* line 132, ../sass/screen.scss */
+.form-wrapper form #submit {
+  align-self: center;
+  margin-top: 1em;
+  transition: all .2s;
+  width: 7rem;
+}
+/* line 137, ../sass/screen.scss */
+.form-wrapper form #submit:hover {
+  box-shadow: none;
+  transition: all .2s;
+}
+/* line 146, ../sass/screen.scss */
+.form-input--block {
   display: block;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1em;
 }
-/* line 90, ../sass/screen.scss */
-.signup form .input-block label {
+/* line 152, ../sass/screen.scss */
+.form-input--block label {
   margin-right: 2em;
 }
-/* line 95, ../sass/screen.scss */
-.signup form .input-block input:not(#submit):focus {
+/* line 156, ../sass/screen.scss */
+.form-input--block input:not([type='submit']) {
+  transition: all .2s;
+}
+/* line 158, ../sass/screen.scss */
+.form-input--block input:not([type='submit']):focus {
   border: none;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transition: all .2s;
 }
-/* line 101, ../sass/screen.scss */
-.signup form #submit {
-  width: 7rem;
-  align-self: center;
-  margin-top: 1em;
-  transition: all .5s;
+/* line 162, ../sass/screen.scss */
+.form-input--block input:not([type='submit']):focus label {
+  font-size: 3em;
 }
-/* line 106, ../sass/screen.scss */
-.signup form #submit:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-/* line 115, ../sass/screen.scss */
-.error {
+/* line 170, ../sass/screen.scss */
+.form-error--message {
   color: red;
-  font-size: .5em;
+  font-size: .75em;
+}
+/* line 174, ../sass/screen.scss */
+.form-error--textInput {
+  border-color: red;
 }

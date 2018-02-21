@@ -1,0 +1,26 @@
+.signup{
+  &-header-wrap{
+    @extend %header-wrap;
+    background-image: url('https://s3.amazonaws.com/aws-website-alecaaroncom-kjonn/img/stars.jpg');
+    width: 100%;
+    height: 8em;
+    color: white;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+  &-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+
+  &-form{
+    position: relative;
+    z-index: 10;
+    margin-top: -5em;
+  }
+}

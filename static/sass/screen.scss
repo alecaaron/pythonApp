@@ -4,115 +4,175 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "normalize";
+@import "templates/index";
+@import "templates/signup";
+@import "templates/login";
+
+$ui-card-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 
 html {
   font-family: 'PT Serif', serif;
-  font-size: 16px;
-}
-
-@media (min-width: 50em) {
-
-  html {
-    font-size: 2vw;
+  font-size: 2vw;
+  a{
+    font-family: sans-serif;
   }
 }
 
-%button{
-  padding-top: .3em;
-  padding-bottom: .3em;
-  padding-left: .5em;
-  padding-right: .5em;
+
+@media (max-width: 650px) {
+
+  html {
+    font-size: 100%;
+  }
+}
+
+
+
+%_Button{
   font-weight: bold;
-  background-color: brown;
-  border: none;
+  border-radius: 5px;
+  border-width: .1em;
+  border-style: solid;
+  padding-top: .25em;
+  padding-right: .5em;
+  padding-bottom: .25em;
+  padding-left: .5em;
+
 }
 
 .btn{
+  $btn-color-main: orange;
+  $btn-color-second: darken($btn-color-main, 20%);
+
   &-main{
-    @extend %button;
+    @extend %_Button;
+    background-color: $btn-color-main;
+    border-color: $btn-color-main;
     color: white;
-    transition: all .3s;
+    transition: all .2s;
     &:hover{
-      background: darken(brown, 20%);
+      background: $btn-color-second;
+      border-color: $btn-color-second;
+      //box-shadow: $ui-card-shadow;
+      transition: all .2s;
+    }
+
+    &-hollow{
+      @extend %_Button;
+      border-color: orange;
+      background-color: none;
+      color: green;
+      transition: all .2s;
+      text-decoration: none;
+      &:hover{
+        background-color: $btn-color-main;
+        box-shadow: $ui-card-shadow;
+        color: white;
+        transition: all .2s;
+        text-decoration: inherit;
+      }
     }
   }
   &-second{
-    @extend %button;
+    @extend %_Button;
   }
 }
 
-#header {
-  width: 100%;
-  height: 100vh;
-  background: url("../img/earth.jpg");
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h1 {
-    color: white;
-    font-weight: lighter;
-    font-style: italic;
-    margin-left: 1rem;
-    font-size: 5rem;
-    margin-top: 0;
-  }
-}
-
-#home_cta{
-  display: flex;
-  justify-content: space-between;
-  width: 20rem;
-  text-align: center;
-}
-
-.signup{
-  width: 40%;
-  display: flex;
-  flex-direction: column;
+%header-wrap{
   margin-left: auto;
   margin-right: auto;
-  margin-top: -10em;
-  margin-bottom: 5em;
-  padding-bottom: 1.5em;
+  padding-top: 5em;
+  position: relative;
+}
+
+header {
   align-items: center;
-  background-color: white;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  form{
-    display: inherit;
-    flex-direction: inherit;
-    .input-block{
-      display: block;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1em;
-
-      label{
-        margin-right: 2em;
-      }
-
-      input:not(#submit){
-        &:focus{
-          border: none;
-          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        }
-      }
-    }
-    #submit{
-      width: 7rem;
-      align-self: center;
-      margin-top: 1em;
-      transition: all .5s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  nav{
+    align-items: center;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+    margin-right: 2em;
+    padding-top: 1em;
+    width: 30%;
+    max-width: 20em;
+    a{
+      color: green;
+      text-decoration: none;
       &:hover{
-        transform: translateY(-4px);
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+        text-decoration: underline;
+        text-decoration-color: red;
+          -webkit-text-decoration-color: orange;
       }
-
     }
   }
 }
 
-.error{
-  color: red;
-  font-size: .5em;
-}
+.form{
+  &-wrapper{
+    align-items: center;
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: $ui-card-shadow;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5em;
+    padding: 1em;
+    width: 40%;
+    form{
+      display: flex;
+      flex-direction: column;
+      #submit{
+        align-self: center;
+        margin-top: 1em;
+        transition: all .2s;
+        width: 7rem;
+        &:hover{
+          box-shadow: none;
+          transition: all .2s;
+        }
+
+      }
+    }
+  }//end .form-wrapper
+
+  &-input--block{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+
+    label{
+      margin-right: 2em;
+    }//end label
+
+    input:not([type='submit']){
+      transition: all .2s;
+      &:focus{
+        border: none;
+        box-shadow: $ui-card-shadow;
+        transition: all .2s;
+        label{
+          font-size: 3em;
+        }
+      }//end input:focus
+    }//end input
+  }//end .form-input--block
+
+  &-error{
+    &--message{
+      color: red;
+      font-size: .75em;
+    }
+    &--textInput{
+      border-color: red;
+    }
+  }
+}//end .form

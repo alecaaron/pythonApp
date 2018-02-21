@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+  <a href={{ url_for('index') }}>Home</a>
+  <a href={{ url_for('about') }}>About</a>
+  <a href={{ url_for('login') }}>Login
+  <a href={{ url_for('signup') }} class="btn-main-hollow">Signup</a>
+{% endblock %}
+
+{% block content %}
+<main class="login-main">
+  <section class="form-wrapper login-form">
+    <h2>Welcome Back</h2>
+    <form method="post" action="/login">
+      {{ form.hidden_tag() }}
+
+      <span class="form-input--block">
+        {{ form.email.label }}
+        <span>
+        {{ form.email(class_= form_error_input) }}
+        {% if form.email.errors %}
+          {% for error in form.email.errors %}
+            <p class="form-error--message">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        </span>
+      </span>
+      <span class="form-input--block">
+        {{ form.password.label }}
+        <span>
+        {{ form.password(class_= form_error_input) }}
+        {% if form.password.errors %}
+          {% for error in form.password.errors %}
+            <p class="form-error--message">{{ error }}</p>
+          {% endfor %}
+        {% endif %}
+        </span>
+      </span>
+
+      {{ form.submit(class="btn-main") }}
+
+    </form>
+  </section>
+  <div class="vertical-divider">
+    <span class="vertical-divider--top"></span>
+    <span class="vertical-divider--content">Or</span>
+    <span class="vertical-divider--bottom"></span>
+  </div>
+  <section class="login-no-acct">
+    <h2>No Account Yet?</h2>
+    <a href="{{ url_for('signup') }}" class="btn-main-hollow">Signup</a>
+  </section>
+</main>
+
+{% endblock %}
