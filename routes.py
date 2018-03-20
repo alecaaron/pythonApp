@@ -1,14 +1,38 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from models import db, User
 from forms import SignupForm, LoginForm
+from flask.ext.sqlalchemy import SQLAlchemy
+from werkzeug import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:abc123@localhost/pyApp'
-#heroku = Heroku(app)
-#db = sqlAlchemy(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:abc123@localhost/pyApp'
+heroku = Heroku(app)
+db = SQLAlchemy(app)
 db.init_app(app)
 
+########################## BEGIN DB ################################
+class User(db.Model):
+    __tablename__ = 'users'
+    uid = db.Column(db.Integer, primary_key = True)
+    firstname = db.Column(db.String(100))
+    lastname = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    pwdhash = db.Column(db.String(100))
+
+    def __init__(self, firstname, lastname, email, password):
+        self.firstname = firstname.title()
+        self.lastname = lastname.title()
+        self.email = email.lower()
+        self.set_password(password)
+
+    def set_password(self, password):
+        self.pwdhash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.pwdhash, password)
+
+########################### End DB ################################
 app.secret_key = "development-key"
 
 @app.route("/")
