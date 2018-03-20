@@ -62,7 +62,9 @@ def login():
                 session['email'] = form.email.data
                 session['firstname'] = user.firstname
                 session['lastname'] = user.lastname
+
                 return redirect(url_for('home'))
+
             else:
                 return redirect(url_for('login'))
 
