@@ -12,12 +12,14 @@ itsdangerous==0.24
 Jinja2==2.10
 jmespath==0.9.3
 MarkupSafe==1.0
+pip==9.0.2
 psycopg2==2.7.3.2
 pyasn1==0.4.2
 python-dateutil==2.6.1
 PyYAML==3.12
 rsa==3.4.2
 s3transfer==0.1.13
+setuptools==28.8.0
 six==1.11.0
 SQLAlchemy==1.2.2
 virtualenv==15.1.0

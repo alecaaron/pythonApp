@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from forms import SignupForm, LoginForm
-from flask.ext.sqlalchemy import SQLAlchemy
-from werkzeug import generate_password_hash, check_password_hash
 from flask_heroku import Heroku
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug import generate_password_hash, check_password_hash
+
 
 app = Flask(__name__)
 
