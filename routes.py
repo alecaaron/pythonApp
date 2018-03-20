@@ -83,7 +83,7 @@ def login():
             password = form.password.data
 
             user = User.query.filter_by(email=email).first()
-            if user is not None or user.check_password(password):
+            if user is not None and user.check_password(password):
                 session['email'] = form.email.data
                 session['firstname'] = user.firstname
                 session['lastname'] = user.lastname
