@@ -5,6 +5,8 @@ from forms import SignupForm, LoginForm
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:abc123@localhost/pyApp'
+#heroku = Heroku(app)
+#db = sqlAlchemy(app)
 db.init_app(app)
 
 app.secret_key = "development-key"
@@ -32,6 +34,9 @@ def signup():
             db.session.add(newuser)
             db.session.commit()
             session['email'] = newuser.email
+            session['firstname'] = newuser.firstname
+            session['lastname'] = newuser.lastname
+
             return redirect(url_for('home'))
 
     elif request.method == "GET":
@@ -53,7 +58,7 @@ def login():
             password = form.password.data
 
             user = User.query.filter_by(email=email).first()
-            if user is not None and user.check_password(password):
+            if user is not None or user.check_password(password):
                 session['email'] = form.email.data
                 session['firstname'] = user.firstname
                 session['lastname'] = user.lastname
@@ -67,6 +72,8 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop('email', None)
+    session.pop('firstname', None)
+    session.pop('lastname', None)
     return redirect(url_for('index'))
 
 @app.route("/home")

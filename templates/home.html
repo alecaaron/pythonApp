@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 
-{% block header %}
+{% block header_body %}
   <div class="nav">
-    <h1>Greetings {{ session['firstname'] }}</h1>
+    <h1>Greetings {{ session['firstname'] }}{{ session['lastname']}}</h1>
+    <h3>Your email is {{ session['email']}}
+
+      <a href="{{url_for('logout')}}">Logout</a>
+
+
   </div>
 {% endblock %}
